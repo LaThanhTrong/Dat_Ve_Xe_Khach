@@ -6,22 +6,22 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Online/Database Management System/TH/Project/Bus_Booking/activation.jar">
+	<classpathentry kind="lib" path="D:/Online/Database Management System/TH/Git/Dat_Ve_Xe_Khach/Bus_Booking/activation.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Online/Database Management System/TH/Project/Bus_Booking/java-mail-1.4.4.jar">
+	<classpathentry kind="lib" path="D:/Online/Database Management System/TH/Git/Dat_Ve_Xe_Khach/Bus_Booking/java-mail-1.4.4.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Online/Database Management System/TH/Project/Bus_Booking/jcalendar-1.4.jar">
+	<classpathentry kind="lib" path="D:/Online/Database Management System/TH/Git/Dat_Ve_Xe_Khach/Bus_Booking/jcalendar-1.4.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/Online/Database Management System/TH/Project/Bus_Booking/mysql-connector-java-8.0.30.jar">
+	<classpathentry kind="lib" path="D:/Online/Database Management System/TH/Git/Dat_Ve_Xe_Khach/Bus_Booking/mysql-connector-java-8.0.30.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
