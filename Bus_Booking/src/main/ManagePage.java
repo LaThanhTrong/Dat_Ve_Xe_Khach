@@ -1122,5 +1122,14 @@ public class ManagePage {
 		textArea.setBounds(718, 508, 135, 65);
 		frame.getContentPane().add(textArea);
 		
+		JButton btnNewButton_1 = new JButton("Tra cứu doanh thu");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ProfitDetails.main(null);
+			}
+		});
+		btnNewButton_1.setBounds(877, 520, 147, 28);
+		frame.getContentPane().add(btnNewButton_1);
+		
 	}
 }
