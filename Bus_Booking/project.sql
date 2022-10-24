@@ -101,10 +101,10 @@ insert into lich_trinh values(4,4,1,'Hà Nội','Sài Gòn',STR_TO_DATE('13-10-2
 insert into lich_trinh values(5,5,2,'Hà Nội','Cần Thơ',STR_TO_DATE('14-10-2022','%d-%m-%Y'),STR_TO_DATE('19-10-2022','%d-%m-%Y'),'22:00:00','03:00:00',100000);
 
 insert into dat_ve values(1,1,1,3,STR_TO_DATE('09-10-2022','%d-%m-%Y'));
-insert into dat_ve values(2,2,2,5,STR_TO_DATE('09-10-2022','%d-%m-%Y'));
-insert into dat_ve values(3,3,3,2,STR_TO_DATE('10-10-2022','%d-%m-%Y'));
-insert into dat_ve values(4,4,4,3,STR_TO_DATE('11-10-2022','%d-%m-%Y'));
-insert into dat_ve values(5,5,5,4,STR_TO_DATE('13-10-2022','%d-%m-%Y'));
+insert into dat_ve values(2,2,2,5,STR_TO_DATE('09-04-2022','%d-%m-%Y'));
+insert into dat_ve values(3,3,3,2,STR_TO_DATE('10-11-2022','%d-%m-%Y'));
+insert into dat_ve values(4,4,4,3,STR_TO_DATE('11-12-2022','%d-%m-%Y'));
+insert into dat_ve values(5,5,5,4,STR_TO_DATE('13-12-2022','%d-%m-%Y'));
 
 delimiter $     
 create procedure capnhat_tt(pid int)
@@ -217,6 +217,8 @@ from lich_trinh lt join dat_ve dv on lt.id_lt = dv.id_lt
 				   join xe_khach xk on xk.id_xk = lt.id_xk
                    join thanh_toan tt on tt.id_dv = dv.id_dv
 where dv.id_kh = 1;
+
+select month(dv.ngay_dv), sum(tt.tht_tt) from thanh_toan tt join dat_ve dv on tt.id_dv = dv.id_dv where year(dv.ngay_dv) = "2022" group by month(dv.ngay_dv);
 
 
 
