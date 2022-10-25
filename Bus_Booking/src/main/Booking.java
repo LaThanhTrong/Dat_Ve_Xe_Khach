@@ -268,7 +268,10 @@ public class Booking {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(seatField.getText().equals("")) {
-					JOptionPane.showMessageDialog(null, "Vui lòng đặt số chỗ ngồi!","Lỗi tìm vé",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Vui lòng đặt số chỗ ngồi!","Lỗi đặt vé",JOptionPane.ERROR_MESSAGE);
+				}
+				else if(Integer.parseInt(seatField.getText()) <= 0){
+					JOptionPane.showMessageDialog(null, "Số chỗ ngồi không hợp lệ!","Lỗi đặt vé",JOptionPane.ERROR_MESSAGE);
 				}
 				else {
 					try {
