@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -34,7 +35,6 @@ public class Booking {
 	private JTextField seatField;
 	private JComboBox comboBox1;
 	private JComboBox comboBox2;
-	
 	public String getID_Schedule() {
 		return id_lt;
 	}
@@ -199,7 +199,7 @@ public class Booking {
 				int cols = 0;
 				String[] colName;
 				String[] row;
-				String id,xk,tx,dateArrive,time,timeArrive,price,address,destination;
+				String id,xk,tx,dateArrive,time,timeArrive,address,destination,price;
 				conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 				try {
 					stmt = conn.createStatement();
@@ -233,6 +233,7 @@ public class Booking {
 					table.getColumnModel().getColumn(7).setHeaderValue("Giờ khởi hành");
 					table.getColumnModel().getColumn(8).setHeaderValue("Giờ đến");
 					table.getColumnModel().getColumn(9).setHeaderValue("Giá chỗ ngồi");
+					
 				}catch(Exception ex) {
 					System.out.println("SQLException: " + ex.getMessage());
 				}
