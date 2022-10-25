@@ -66,7 +66,6 @@ drop table Dat_Ve;
 create table Thanh_Toan(
 	id_tt int PRIMARY KEY auto_increment,
 	id_dv int, FOREIGN KEY(id_dv) references dat_ve(id_dv),
-    t_tt float not null,
     giamgia_tt int check(giamgia_tt >= 0 and giamgia_tt <= 100) not null default 0,
     tht_tt float not null default 0
 );
@@ -118,15 +117,15 @@ begin
 end$
 drop procedure if exists capnhat_tt;
 
-insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(1,1,1100000,0);
+insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(1,1,0);
 call capnhat_tt(1);
-insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(2,2,1000000,0);
+insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(2,2,0);
 call capnhat_tt(2);
-insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(3,3,500000,0);
+insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(3,3,0);
 call capnhat_tt(3);
-insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(4,4,1200000,10);
+insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(4,4,10);
 call capnhat_tt(4);
-insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(5,5,500000,5);
+insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(5,5,5);
 call capnhat_tt(5);
 
 select * from nhan_vien;

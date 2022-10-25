@@ -442,7 +442,7 @@ public class ManagePage {
 		int cols = 0;
 		String[] colName;
 		String[] row;
-		String id,dv,total,price;
+		String id,dv,price;
 		conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 		try {
 			cStmt = conn.prepareCall("{call capnhat_tt(?)}");
@@ -464,17 +464,15 @@ public class ManagePage {
 			while(rs.next()) {
 				id = rs.getString(1);
 				dv = rs.getString(2);
-				total = rs.getString(3);
-				discount = rs.getString(4);
-				price = rs.getString(5);
-				row = new String[]{id,dv,total,discount,price};
+				discount = rs.getString(3);
+				price = rs.getString(4);
+				row = new String[]{id,dv,discount,price};
 				model.addRow(row);
 			}
 			table.getColumnModel().getColumn(0).setHeaderValue("ID");
 			table.getColumnModel().getColumn(1).setHeaderValue("ID đặt vé");
-			table.getColumnModel().getColumn(2).setHeaderValue("Tiền khách thanh toán");
-			table.getColumnModel().getColumn(3).setHeaderValue("Giảm giá");
-			table.getColumnModel().getColumn(4).setHeaderValue("Thành tiền");
+			table.getColumnModel().getColumn(2).setHeaderValue("Giảm giá");
+			table.getColumnModel().getColumn(3).setHeaderValue("Thành tiền");
 			discount = discountPaymentField.getText();
 		}catch(Exception ex) {
 			System.out.println("SQLException: " + ex.getMessage());
@@ -997,11 +995,10 @@ public class ManagePage {
 							for(int r = 0; r < rows; r++) {
 								String id = model.getValueAt(r, 0).toString();
 								String dv = model.getValueAt(r, 1).toString();
-								String total = model.getValueAt(r, 2).toString();
-								String discount = model.getValueAt(r, 3).toString();
-								String date = model.getValueAt(r, 4).toString();
-								String price = model.getValueAt(r, 5).toString();
-								String sql = "UPDATE thanh_toan set id_dv = '"+dv+"', t_tt = '"+total+"', giamgia_tt = '"+discount+"', ngay_tt = '"+date+"', tht_tt = '"+price+"' where id_tt = '"+id+"'";
+								String discount = model.getValueAt(r, 2).toString();
+								String date = model.getValueAt(r, 3).toString();
+								String price = model.getValueAt(r, 4).toString();
+								String sql = "UPDATE thanh_toan set id_dv = '"+dv+"', giamgia_tt = '"+discount+"', ngay_tt = '"+date+"', tht_tt = '"+price+"' where id_tt = '"+id+"'";
 								Connection conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 								PreparedStatement pStmt = conn.prepareStatement(sql);
 								pStmt.execute();
