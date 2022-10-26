@@ -137,7 +137,7 @@ public class ManagePage {
 		int cols = 0;
 		String[] colName;
 		String[] row;
-		String id,xk,tx,dateArrive,time,timeArrive,price;
+		String id,xk,tx,dateArrive,time,timeArrive,price,seat;
 		conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 		try {
 			stmt = conn.createStatement();
@@ -151,26 +151,28 @@ public class ManagePage {
 				id = rs.getString(1);
 				xk = rs.getString(2);
 				tx = rs.getString(3);
-				address = rs.getString(4);
-				destination = rs.getString(5);
-				date = rs.getString(6);
-				dateArrive = rs.getString(7);
-				time = rs.getString(8);
-				timeArrive = rs.getString(9);
-				price = rs.getString(10);
-				row = new String[]{id,xk,tx,address,destination,date,dateArrive,time,timeArrive,price};
+				seat = rs.getString(4);
+				address = rs.getString(5);
+				destination = rs.getString(6);
+				date = rs.getString(7);
+				dateArrive = rs.getString(8);
+				time = rs.getString(9);
+				timeArrive = rs.getString(10);
+				price = rs.getString(11);
+				row = new String[]{id,xk,tx,seat,address,destination,date,dateArrive,time,timeArrive,price};
 				model.addRow(row);
 			}
 			table.getColumnModel().getColumn(0).setHeaderValue("ID");
 			table.getColumnModel().getColumn(1).setHeaderValue("ID Xe khách");
 			table.getColumnModel().getColumn(2).setHeaderValue("ID Tài xế");
-			table.getColumnModel().getColumn(3).setHeaderValue("Điểm đầu");
-			table.getColumnModel().getColumn(4).setHeaderValue("Điểm đến");
-			table.getColumnModel().getColumn(5).setHeaderValue("Ngày khởi hành");
-			table.getColumnModel().getColumn(6).setHeaderValue("Ngày đến");
-			table.getColumnModel().getColumn(7).setHeaderValue("Giờ khởi hành");
-			table.getColumnModel().getColumn(8).setHeaderValue("Giờ đến");
-			table.getColumnModel().getColumn(9).setHeaderValue("Giá chỗ ngồi");
+			table.getColumnModel().getColumn(3).setHeaderValue("Số chỗ ngồi");
+			table.getColumnModel().getColumn(4).setHeaderValue("Điểm đầu");
+			table.getColumnModel().getColumn(5).setHeaderValue("Điểm đến");
+			table.getColumnModel().getColumn(6).setHeaderValue("Ngày khởi hành");
+			table.getColumnModel().getColumn(7).setHeaderValue("Ngày đến");
+			table.getColumnModel().getColumn(8).setHeaderValue("Giờ khởi hành");
+			table.getColumnModel().getColumn(9).setHeaderValue("Giờ đến");
+			table.getColumnModel().getColumn(10).setHeaderValue("Giá chỗ ngồi");
 			address = addressField.getText();
 			destination = destinationField.getText();
 		}catch(Exception ex) {
@@ -597,15 +599,15 @@ public class ManagePage {
 					JOptionPane.showMessageDialog(null, "Vui lòng nhập địa chỉ đầu và địa chỉ đến!","Lỗi đăng nhập",JOptionPane.ERROR_MESSAGE);
 				}
 				if(dateScheduleField.getDate() == null && address.equals("") && destination.equals("")) {
-					SQLSchedule("SELECT * FROM lich_trinh");
+					SQLSchedule("SELECT lt.id_lt,id_xk,id_tx, cnlt.cn_lt, dcd_lt, dcc_lt, ngaykh_lt, ngayd_lt, tgkh_lt,tgd_lt, gia_lt FROM lich_trinh lt join chongoi_lichtrinh cnlt on lt.id_lt = cnlt.id_lt");
 				}
 				if(dateScheduleField.getDate() == null && !address.equals("") && !destination.equals("")) {
-					SQLSchedule("SELECT * FROM lich_trinh where dcd_lt = '"+address+"' and dcc_lt = '"+destination+"'");
+					SQLSchedule("SELECT lt.id_lt,id_xk,id_tx, cnlt.cn_lt, dcd_lt, dcc_lt, ngaykh_lt, ngayd_lt, tgkh_lt,tgd_lt, gia_lt FROM lich_trinh lt join chongoi_lichtrinh cnlt on lt.id_lt = cnlt.id_lt where dcd_lt = '"+address+"' and dcc_lt = '"+destination+"'");
 				}
 				if(dateScheduleField.getDate() != null && address.equals("") && destination.equals("")) {
 					try {
 						date = dateFormat.format(dateScheduleField.getDate());
-						SQLSchedule("SELECT * FROM lich_trinh where ngaykh_lt = '"+date+"'");
+						SQLSchedule("SELECT lt.id_lt,id_xk,id_tx, cnlt.cn_lt, dcd_lt, dcc_lt, ngaykh_lt, ngayd_lt, tgkh_lt,tgd_lt, gia_lt FROM lich_trinh lt join chongoi_lichtrinh cnlt on lt.id_lt = cnlt.id_lt where ngaykh_lt = '"+date+"'");
 					}catch(Exception ex) {
 						JOptionPane.showMessageDialog(null, "Vui lòng chọn ngày khởi hành!","Lỗi lịch trình",JOptionPane.ERROR_MESSAGE);
 						System.out.println(ex.getMessage());
@@ -614,7 +616,7 @@ public class ManagePage {
 				if(dateScheduleField.getDate() != null && !address.equals("") && !destination.equals("")) {
 					try {
 						date = dateFormat.format(dateScheduleField.getDate());
-						SQLSchedule("SELECT * FROM lich_trinh where ngaykh_lt = '"+date+"' and dcd_lt = '"+address+"' and dcc_lt = '"+destination+"'");
+						SQLSchedule("SELECT lt.id_lt,id_xk,id_tx, cnlt.cn_lt, dcd_lt, dcc_lt, ngaykh_lt, ngayd_lt, tgkh_lt,tgd_lt, gia_lt FROM lich_trinh lt join chongoi_lichtrinh cnlt on lt.id_lt = cnlt.id_lt where ngaykh_lt = '"+date+"' and dcd_lt = '"+address+"' and dcc_lt = '"+destination+"'");
 					}catch(Exception ex) {
 						JOptionPane.showMessageDialog(null, "Vui lòng chọn ngày khởi hành!","Lỗi lịch trình",JOptionPane.ERROR_MESSAGE);
 						System.out.println(ex.getMessage());
