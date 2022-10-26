@@ -73,7 +73,7 @@ public class Booking {
 	private void initialize() {
 		frame = new JFrame();
 		LoginAsCustomer lc = new LoginAsCustomer();
-		frame.setBounds(100, 100, 926, 629);
+		frame.setBounds(100, 100, 1046, 629);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -127,11 +127,14 @@ public class Booking {
 					int cols = 0;
 					String[] colName;
 					String[] row;
-					String id,xk,tx,dateArrive,time,timeArrive,price,address,destination;
+					String id,xk,tx,seat,dateArrive,time,timeArrive,price,address,destination;
 					conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 					try {
 						stmt = conn.createStatement();
-						rs = stmt.executeQuery("SELECT * FROM lich_trinh where dcd_lt = '"+comboBox1.getSelectedItem()+"' and dcc_lt = '"+comboBox2.getSelectedItem()+"' and ngaykh_lt = '"+dateFormat.format(dateField.getDate())+"'");
+						rs = stmt.executeQuery("SELECT lt.id_lt,xk.ten_xk,tx.ten_tx, cnlt.cn_lt, dcd_lt, dcc_lt, ngaykh_lt, ngayd_lt, tgkh_lt,tgd_lt, gia_lt \r\n"
+								+ "FROM lich_trinh lt join chongoi_lichtrinh cnlt on lt.id_lt = cnlt.id_lt\r\n"
+								+ "				   join xe_khach xk on xk.id_xk = lt.id_xk\r\n"
+								+ "                   join tai_xe tx on tx.id_tx = lt.id_tx where dcd_lt = '"+comboBox1.getSelectedItem()+"' and dcc_lt = '"+comboBox2.getSelectedItem()+"' and ngaykh_lt = '"+dateFormat.format(dateField.getDate())+"'");
 						rsmd = rs.getMetaData();
 						model = (DefaultTableModel) table.getModel();
 						cols = rsmd.getColumnCount();
@@ -141,26 +144,28 @@ public class Booking {
 							id = rs.getString(1);
 							xk = rs.getString(2);
 							tx = rs.getString(3);
-							address = rs.getString(4);
-							destination = rs.getString(5);
-							date = rs.getString(6);
-							dateArrive = rs.getString(7);
-							time = rs.getString(8);
-							timeArrive = rs.getString(9);
-							price = rs.getString(10);
-							row = new String[]{id,xk,tx,address,destination,date,dateArrive,time,timeArrive,price};
+							seat = rs.getString(4);
+							address = rs.getString(5);
+							destination = rs.getString(6);
+							date = rs.getString(7);
+							dateArrive = rs.getString(8);
+							time = rs.getString(9);
+							timeArrive = rs.getString(10);
+							price = rs.getString(11);
+							row = new String[]{id,xk,tx,seat,address,destination,date,dateArrive,time,timeArrive,price};
 							model.addRow(row);
 						}
 						table.getColumnModel().getColumn(0).setHeaderValue("ID");
-						table.getColumnModel().getColumn(1).setHeaderValue("ID Xe khách");
-						table.getColumnModel().getColumn(2).setHeaderValue("ID Tài xế");
-						table.getColumnModel().getColumn(3).setHeaderValue("Điểm đầu");
-						table.getColumnModel().getColumn(4).setHeaderValue("Điểm đến");
-						table.getColumnModel().getColumn(5).setHeaderValue("Ngày khởi hành");
-						table.getColumnModel().getColumn(6).setHeaderValue("Ngày đến");
-						table.getColumnModel().getColumn(7).setHeaderValue("Giờ khởi hành");
-						table.getColumnModel().getColumn(8).setHeaderValue("Giờ đến");
-						table.getColumnModel().getColumn(9).setHeaderValue("Giá chỗ ngồi");
+						table.getColumnModel().getColumn(1).setHeaderValue("Tên xe khách");
+						table.getColumnModel().getColumn(2).setHeaderValue("Tên tài xế");
+						table.getColumnModel().getColumn(3).setHeaderValue("Số chỗ ngồi");
+						table.getColumnModel().getColumn(4).setHeaderValue("Điểm đầu");
+						table.getColumnModel().getColumn(5).setHeaderValue("Điểm đến");
+						table.getColumnModel().getColumn(6).setHeaderValue("Ngày khởi hành");
+						table.getColumnModel().getColumn(7).setHeaderValue("Ngày đến");
+						table.getColumnModel().getColumn(8).setHeaderValue("Giờ khởi hành");
+						table.getColumnModel().getColumn(9).setHeaderValue("Giờ đến");
+						table.getColumnModel().getColumn(10).setHeaderValue("Giá chỗ ngồi");
 					}catch(Exception ex) {
 						System.out.println("SQLException: " + ex.getMessage());
 					}
@@ -199,11 +204,14 @@ public class Booking {
 				int cols = 0;
 				String[] colName;
 				String[] row;
-				String id,xk,tx,dateArrive,time,timeArrive,address,destination,price;
+				String id,xk,tx,seat,dateArrive,time,timeArrive,address,destination,price;
 				conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 				try {
 					stmt = conn.createStatement();
-					rs = stmt.executeQuery("SELECT * FROM lich_trinh");
+					rs = stmt.executeQuery("SELECT lt.id_lt,xk.ten_xk,tx.ten_tx, cnlt.cn_lt, dcd_lt, dcc_lt, ngaykh_lt, ngayd_lt, tgkh_lt,tgd_lt, gia_lt \r\n"
+							+ "FROM lich_trinh lt join chongoi_lichtrinh cnlt on lt.id_lt = cnlt.id_lt\r\n"
+							+ "				   join xe_khach xk on xk.id_xk = lt.id_xk\r\n"
+							+ "                   join tai_xe tx on tx.id_tx = lt.id_tx");
 					rsmd = rs.getMetaData();
 					model = (DefaultTableModel) table.getModel();
 					cols = rsmd.getColumnCount();
@@ -213,26 +221,28 @@ public class Booking {
 						id = rs.getString(1);
 						xk = rs.getString(2);
 						tx = rs.getString(3);
-						address = rs.getString(4);
-						destination = rs.getString(5);
-						date = rs.getString(6);
-						dateArrive = rs.getString(7);
-						time = rs.getString(8);
-						timeArrive = rs.getString(9);
-						price = rs.getString(10);
-						row = new String[]{id,xk,tx,address,destination,date,dateArrive,time,timeArrive,price};
+						seat = rs.getString(4);
+						address = rs.getString(5);
+						destination = rs.getString(6);
+						date = rs.getString(7);
+						dateArrive = rs.getString(8);
+						time = rs.getString(9);
+						timeArrive = rs.getString(10);
+						price = rs.getString(11);
+						row = new String[]{id,xk,tx,seat,address,destination,date,dateArrive,time,timeArrive,price};
 						model.addRow(row);
 					}
 					table.getColumnModel().getColumn(0).setHeaderValue("ID");
-					table.getColumnModel().getColumn(1).setHeaderValue("ID Xe khách");
-					table.getColumnModel().getColumn(2).setHeaderValue("ID Tài xế");
-					table.getColumnModel().getColumn(3).setHeaderValue("Điểm đầu");
-					table.getColumnModel().getColumn(4).setHeaderValue("Điểm đến");
-					table.getColumnModel().getColumn(5).setHeaderValue("Ngày khởi hành");
-					table.getColumnModel().getColumn(6).setHeaderValue("Ngày đến");
-					table.getColumnModel().getColumn(7).setHeaderValue("Giờ khởi hành");
-					table.getColumnModel().getColumn(8).setHeaderValue("Giờ đến");
-					table.getColumnModel().getColumn(9).setHeaderValue("Giá chỗ ngồi");
+					table.getColumnModel().getColumn(1).setHeaderValue("Tên xe khách");
+					table.getColumnModel().getColumn(2).setHeaderValue("Tên tài xế");
+					table.getColumnModel().getColumn(3).setHeaderValue("Số chỗ ngồi");
+					table.getColumnModel().getColumn(4).setHeaderValue("Điểm đầu");
+					table.getColumnModel().getColumn(5).setHeaderValue("Điểm đến");
+					table.getColumnModel().getColumn(6).setHeaderValue("Ngày khởi hành");
+					table.getColumnModel().getColumn(7).setHeaderValue("Ngày đến");
+					table.getColumnModel().getColumn(8).setHeaderValue("Giờ khởi hành");
+					table.getColumnModel().getColumn(9).setHeaderValue("Giờ đến");
+					table.getColumnModel().getColumn(10).setHeaderValue("Giá chỗ ngồi");
 					
 				}catch(Exception ex) {
 					System.out.println("SQLException: " + ex.getMessage());
@@ -258,7 +268,7 @@ public class Booking {
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 104, 892, 420);
+		scrollPane.setBounds(10, 104, 1012, 420);
 		frame.getContentPane().add(scrollPane);
 		
 		table = new JTable();
@@ -279,7 +289,7 @@ public class Booking {
 						try {
 							int row = table.getSelectedRow();
 							id_lt = (table.getModel().getValueAt(row, 0).toString());
-							price = Float.parseFloat(table.getModel().getValueAt(row, 9).toString()) * seat;
+							price = Float.parseFloat(table.getModel().getValueAt(row, 10).toString()) * seat;
 							try {
 								AddPayment.main(null);
 							}catch(Exception ex) {
