@@ -54,6 +54,24 @@ create table Lich_Trinh(
 );
 drop table Lich_Trinh;
 
+create table ChoNgoi_LichTrinh(
+	id_cnlt int auto_increment,
+    id_lt int, FOREIGN KEY(id_lt) references lich_trinh(id_lt),
+    cn_lt int not null,
+    PRIMARY KEY (id_cnlt , id_lt)
+);
+drop table ChoNgoi_LichTrinh;
+
+delimiter $
+create trigger capnhatcn_lt after insert on lich_trinh 
+for each row
+begin
+	declare temp int;
+    select xk.cn_xk into temp from xe_khach xk join lich_trinh lt on lt.id_xk = xk.id_xk where lt.id_lt = (select max(id_lt) from lich_trinh);
+	insert into ChoNgoi_LichTrinh (id_lt, cn_lt) values (new.id_lt,temp);
+end$
+drop trigger capnhatcn_lt;
+
 create table Dat_Ve(
 	id_dv int PRIMARY KEY auto_increment,
 	id_lt int, FOREIGN KEY(id_lt) references lich_trinh(id_lt),
@@ -62,6 +80,16 @@ create table Dat_Ve(
     ngay_dv date not null
 );
 drop table Dat_Ve;
+
+delimiter $
+create trigger capnhatcn_dv after insert on dat_ve 
+for each row
+begin
+	declare temp int;
+    select lt.id_lt into temp from dat_ve dv join lich_trinh lt on lt.id_lt = dv.id_lt where dv.id_dv = (select max(id_dv) from dat_ve);
+	update ChoNgoi_LichTrinh set cn_lt = cn_lt - 1 where id_lt = temp;
+end$
+drop trigger capnhatcn_dv;
 
 create table Thanh_Toan(
 	id_tt int PRIMARY KEY auto_increment,
@@ -117,27 +145,28 @@ begin
 end$
 drop procedure if exists capnhat_tt;
 
-insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(1,1,0);
+insert into thanh_toan (id_tt,id_dv,giamgia_tt) values(1,1,0);
 call capnhat_tt(1);
-insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(2,2,0);
+insert into thanh_toan (id_tt,id_dv,giamgia_tt) values(2,2,0);
 call capnhat_tt(2);
-insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(3,3,0);
+insert into thanh_toan (id_tt,id_dv,giamgia_tt) values(3,3,0);
 call capnhat_tt(3);
-insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(4,4,10);
+insert into thanh_toan (id_tt,id_dv,giamgia_tt) values(4,4,10);
 call capnhat_tt(4);
-insert into thanh_toan (id_tt,id_dv,t_tt,giamgia_tt) values(5,5,5);
+insert into thanh_toan (id_tt,id_dv,giamgia_tt) values(5,5,5);
 call capnhat_tt(5);
 
 select * from nhan_vien;
 select * from xe_khach;
 select * from khach_hang;
 select * from tai_xe;
-select id_lt,id_xk,id_tx,dcd_lt,dcc_lt, DATE_FORMAT(ngaykh_lt, '%d-%m-%Y') as ngaykh_lt,
+select lt.id_lt,id_xk,id_tx, cnlt.cn_lt, dcd_lt, dcc_lt, DATE_FORMAT(ngaykh_lt, '%d-%m-%Y') as ngaykh_lt,
 	   DATE_FORMAT(ngayd_lt, '%d-%m-%Y') as ngayd_lt,
-       tgkh_lt,tgd_lt, gia_lt from lich_trinh;
+       tgkh_lt,tgd_lt, gia_lt from lich_trinh lt join chongoi_lichtrinh cnlt on lt.id_lt = cnlt.id_lt;
 select id_dv,id_lt,id_kh,cn_dv, 
 	   DATE_FORMAT(ngay_dv, '%d-%m-%Y') as ngay_dv from dat_ve;
 select * from thanh_toan;
+select * from chongoi_lichtrinh;
 
 delimiter $
 create procedure them_kh(pten varchar(50), psdt char(10), pemail varchar(50), pusername varchar(50), ppassword varchar(50))
@@ -159,9 +188,10 @@ drop procedure if exists xoa_kh;
 delimiter $
 create procedure xoa_tx(pid int)
 begin
-	-- Delete Driver by deleting data from Payment, Booking, Schedule in sequence
+	-- Delete Driver by deleting data from Payment, Booking, Seat Schedule, Schedule in sequence
     delete from thanh_toan where id_dv in(select dv.id_dv from dat_ve dv join lich_trinh lt on lt.id_lt = dv.id_lt where lt.id_tx = pid);
     delete from dat_ve where id_lt in(select id_lt from lich_trinh where id_tx = pid);
+    delete from chongoi_lichtrinh where id_lt in(select id_lt from lich_trinh where id_tx = pid);
     delete from lich_trinh where id_tx = pid;
 	delete from tai_xe where id_tx = pid;
 end$
@@ -170,9 +200,10 @@ drop procedure if exists xoa_tx;
 delimiter $
 create procedure xoa_xk(pid int)
 begin
-	-- Delete Bus by deleting data from Payment, Booking, Schedule in sequence
+	-- Delete Bus by deleting data from Payment, Booking, Seat Schedule, Schedule in sequence
     delete from thanh_toan where id_dv in(select dv.id_dv from dat_ve dv join lich_trinh lt on lt.id_lt = dv.id_lt where lt.id_xk = pid);
     delete from dat_ve where id_lt in(select id_lt from lich_trinh where id_xk = pid);
+    delete from chongoi_lichtrinh where id_lt in(select id_lt from lich_trinh where id_xk = pid);
     delete from lich_trinh where id_xk = pid;
 	delete from xe_khach where id_xk = pid;
 end$
@@ -181,9 +212,10 @@ drop procedure if exists xoa_xk;
 delimiter $
 create procedure xoa_lt(pid int)
 begin
-	-- Delete Schedule by deleting data from Payment and Booking in sequence
+	-- Delete Schedule by deleting data from Payment, Booking, and Seat Schedule in sequence
     delete from thanh_toan where id_dv in (select id_dv from dat_ve where id_lt = pid);
     delete from dat_ve where id_lt = pid;
+    delete from chongoi_lichtrinh where id_lt = pid;
 	delete from lich_trinh where id_lt = pid;
 end$
 drop procedure if exists xoa_lt;
