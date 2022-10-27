@@ -86,7 +86,6 @@ create trigger capnhatcn_dv after insert on dat_ve
 for each row
 begin
 	update ChoNgoi_LichTrinh cnlt join dat_ve dv on cnlt.id_lt = dv.id_lt 
-    join lich_trinh lt on lt.id_lt = cnlt.id_lt
     set cnlt.cn_lt = cnlt.cn_lt - dv.cn_dv where dv.id_dv = (select max(id_dv) from dat_ve);
 end$
 drop trigger capnhatcn_dv;
