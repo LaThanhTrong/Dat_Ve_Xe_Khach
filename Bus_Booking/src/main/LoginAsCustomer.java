@@ -13,8 +13,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -100,7 +103,7 @@ public class LoginAsCustomer {
 		
 		JLabel lblNewLabel = new JLabel("Khách hàng đăng nhập");
 		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 25));
-		lblNewLabel.setBounds(107, 10, 274, 46);
+		lblNewLabel.setBounds(120, 10, 274, 46);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tài khoản:");
@@ -287,5 +290,12 @@ public class LoginAsCustomer {
 		});
 		btnNewButton_1.setBounds(153, 234, 162, 39);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		ImageIcon user = new ImageIcon("Images/user.png");
+		user.setImage(user.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+		JLabel UserImage = new JLabel();
+		UserImage.setIcon(user);
+		UserImage.setBounds(55, 20, 55, 36);
+		frame.getContentPane().add(UserImage);
 	}
 }
