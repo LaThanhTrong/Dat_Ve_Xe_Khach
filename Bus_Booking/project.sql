@@ -87,7 +87,9 @@ for each row
 begin
 	declare temp int;
     select lt.id_lt into temp from dat_ve dv join lich_trinh lt on lt.id_lt = dv.id_lt where dv.id_dv = (select max(id_dv) from dat_ve);
-	update ChoNgoi_LichTrinh set cn_lt = cn_lt - 1 where id_lt = temp;
+	update ChoNgoi_LichTrinh cnlt join dat_ve dv on cnlt.id_lt = dv.id_lt 
+    join lich_trinh lt on lt.id_lt = cnlt.id_lt
+    set cnlt.cn_lt = cnlt.cn_lt - dv.cn_dv where lt.id_lt = temp;
 end$
 drop trigger capnhatcn_dv;
 
@@ -251,5 +253,11 @@ where dv.id_kh = 1;
 
 select month(dv.ngay_dv), sum(tt.tht_tt) from thanh_toan tt join dat_ve dv on tt.id_dv = dv.id_dv where year(dv.ngay_dv) = "2022" group by month(dv.ngay_dv);
 
+SELECT lt.id_lt,xk.ten_xk,tx.ten_tx, cnlt.cn_lt, dcd_lt, dcc_lt, ngaykh_lt, ngayd_lt, tgkh_lt,tgd_lt, gia_lt 
+FROM lich_trinh lt join chongoi_lichtrinh cnlt on lt.id_lt = cnlt.id_lt
+				   join xe_khach xk on xk.id_xk = lt.id_xk
+                   join tai_xe tx on tx.id_tx = lt.id_tx
+order by lt.id_lt;
 
+select cn_lt from chongoi_lichtrinh where id_lt = 3;
 

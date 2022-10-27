@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -134,7 +135,8 @@ public class Booking {
 						rs = stmt.executeQuery("SELECT lt.id_lt,xk.ten_xk,tx.ten_tx, cnlt.cn_lt, dcd_lt, dcc_lt, ngaykh_lt, ngayd_lt, tgkh_lt,tgd_lt, gia_lt \r\n"
 								+ "FROM lich_trinh lt join chongoi_lichtrinh cnlt on lt.id_lt = cnlt.id_lt\r\n"
 								+ "				   join xe_khach xk on xk.id_xk = lt.id_xk\r\n"
-								+ "                   join tai_xe tx on tx.id_tx = lt.id_tx where dcd_lt = '"+comboBox1.getSelectedItem()+"' and dcc_lt = '"+comboBox2.getSelectedItem()+"' and ngaykh_lt = '"+dateFormat.format(dateField.getDate())+"'");
+								+ "                   join tai_xe tx on tx.id_tx = lt.id_tx where dcd_lt = '"+comboBox1.getSelectedItem()+"' and dcc_lt = '"+comboBox2.getSelectedItem()+"' and ngaykh_lt = '"+dateFormat.format(dateField.getDate())+"'"
+										+ "order by lt.id_lt");
 						rsmd = rs.getMetaData();
 						model = (DefaultTableModel) table.getModel();
 						cols = rsmd.getColumnCount();
@@ -211,7 +213,7 @@ public class Booking {
 					rs = stmt.executeQuery("SELECT lt.id_lt,xk.ten_xk,tx.ten_tx, cnlt.cn_lt, dcd_lt, dcc_lt, ngaykh_lt, ngayd_lt, tgkh_lt,tgd_lt, gia_lt \r\n"
 							+ "FROM lich_trinh lt join chongoi_lichtrinh cnlt on lt.id_lt = cnlt.id_lt\r\n"
 							+ "				   join xe_khach xk on xk.id_xk = lt.id_xk\r\n"
-							+ "                   join tai_xe tx on tx.id_tx = lt.id_tx");
+							+ "                   join tai_xe tx on tx.id_tx = lt.id_tx order by lt.id_lt");
 					rsmd = rs.getMetaData();
 					model = (DefaultTableModel) table.getModel();
 					cols = rsmd.getColumnCount();
@@ -286,14 +288,29 @@ public class Booking {
 				else {
 					try {
 						seat = Integer.parseInt(seatField.getText());
+						int cn_lt = 0;
 						try {
 							int row = table.getSelectedRow();
 							id_lt = (table.getModel().getValueAt(row, 0).toString());
 							price = Float.parseFloat(table.getModel().getValueAt(row, 10).toString()) * seat;
-							try {
-								AddPayment.main(null);
-							}catch(Exception ex) {
-								System.out.println("SQLException: " + ex.getMessage());
+							Connection conn = MySQLConnect.getConnect("dat_ve_xe_khach");
+							PreparedStatement pStmt = null;
+							ResultSet rs = null;
+							pStmt = conn.prepareStatement("select cn_lt from chongoi_lichtrinh where id_lt=?");
+							pStmt.setInt(1, Integer.parseInt(id_lt));
+							rs = pStmt.executeQuery();
+							if(rs.next()) {
+								cn_lt = rs.getInt(1);
+							}
+							if(seat > cn_lt) {
+								JOptionPane.showMessageDialog(null, "Lịch trình đã hết chỗ ngồi!", "Lỗi đặt vé",JOptionPane.ERROR_MESSAGE);
+							}
+							else {
+								try {
+									AddPayment.main(null);
+								}catch(Exception ex) {
+									System.out.println("SQLException: " + ex.getMessage());
+								}
 							}
 						}catch(Exception ex) {
 							JOptionPane.showMessageDialog(null, "Vui lòng chọn dữ liệu!", "Lỗi đặt vé",JOptionPane.ERROR_MESSAGE);
