@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class AddPayment {
 
@@ -53,6 +54,7 @@ public class AddPayment {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(255, 250, 240));
 		HashMap<String,Integer> m = new HashMap<String,Integer>();
 		m.put("mysql", 10);
 		m.put("aile", 5);
@@ -64,29 +66,34 @@ public class AddPayment {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Thanh toán");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setBounds(146, 10, 140, 43);
+		lblNewLabel.setFont(new Font("Serif", Font.BOLD, 25));
+		lblNewLabel.setBounds(159, 10, 140, 43);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_2 = new JLabel("Nhập mã giảm giá (Không bắc buộc)");
-		lblNewLabel_2.setBounds(10, 148, 209, 13);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(10, 111, 246, 21);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		discountField = new JTextField();
-		discountField.setBounds(217, 145, 194, 19);
+		discountField.setBounds(249, 108, 184, 30);
 		frame.getContentPane().add(discountField);
 		discountField.setColumns(10);
 		
 		JButton btnReturn = new JButton("Trở về");
+		btnReturn.setBackground(Color.LIGHT_GRAY);
+		btnReturn.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnReturn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 			}
 		});
-		btnReturn.setBounds(10, 187, 85, 21);
+		btnReturn.setBounds(10, 153, 85, 30);
 		frame.getContentPane().add(btnReturn);
 		
 		JButton btnConfirm = new JButton("Xác nhận");
+		btnConfirm.setBackground(new Color(250, 128, 114));
+		btnConfirm.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(JOptionPane.showInternalConfirmDialog(null, "Bạn có đồng ý thanh toán cho hóa đơn này hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0){
@@ -135,18 +142,22 @@ public class AddPayment {
 				}
 			}
 		});
-		btnConfirm.setBounds(303, 187, 108, 21);
+		btnConfirm.setBounds(169, 152, 121, 32);
 		frame.getContentPane().add(btnConfirm);
 		
 		JLabel lblNewLabel_3 = new JLabel("Số tiền cần thanh toán");
-		lblNewLabel_3.setBounds(10, 64, 151, 13);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_3.setBounds(10, 64, 173, 21);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		priceLable = new JLabel(String.valueOf(b.getPrice()));
-		priceLable.setBounds(217, 63, 116, 13);
+		priceLable.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		priceLable.setBounds(193, 63, 156, 22);
 		frame.getContentPane().add(priceLable);
 		
 		JButton btnNewButton = new JButton("Làm mới");
+		btnNewButton.setBackground(Color.LIGHT_GRAY);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(m.containsKey(discountField.getText())) {
@@ -157,7 +168,7 @@ public class AddPayment {
 				}
 			}
 		});
-		btnNewButton.setBounds(326, 60, 85, 21);
+		btnNewButton.setBounds(340, 59, 93, 30);
 		frame.getContentPane().add(btnNewButton);
 	}
 

@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -25,6 +27,8 @@ import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class Booking {
 	private static String id_lt;
@@ -74,40 +78,54 @@ public class Booking {
 	private void initialize() {
 		frame = new JFrame();
 		LoginAsCustomer lc = new LoginAsCustomer();
-		frame.setBounds(100, 100, 1046, 629);
+		frame.setBounds(100, 100, 1046, 689);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		ImageIcon bus = new ImageIcon("Images/bus.png");
+		bus.setImage(bus.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT));
+		JLabel busIcon = new JLabel();
+		busIcon.setIcon(bus);
+		busIcon.setBounds(314, 5, 96, 63);
+		frame.getContentPane().add(busIcon);
 		
 		JLabel lblNewLabel = new JLabel("Đặt vé xe khách");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblNewLabel.setBounds(306, 10, 210, 63);
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Serif", Font.BOLD, 40));
+		lblNewLabel.setBounds(420, 5, 334, 63);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tài khoản ID:");
-		lblNewLabel_1.setBounds(10, 10, 74, 24);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(10, 21, 116, 24);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel(Integer.toString(lc.getID()));
-		lblNewLabel_2.setBounds(88, 16, 45, 13);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel_2.setBounds(127, 21, 45, 24);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Thành phố nơi đi");
-		lblNewLabel_3.setBounds(10, 78, 100, 16);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_3.setBounds(10, 94, 129, 36);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Thành phố nơi đến");
-		lblNewLabel_4.setBounds(230, 78, 109, 18);
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_4.setBounds(275, 94, 142, 36);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Ngày đi");
-		lblNewLabel_5.setBounds(471, 78, 45, 16);
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_5.setBounds(556, 94, 85, 36);
 		frame.getContentPane().add(lblNewLabel_5);
 		
 		JDateChooser dateField = new JDateChooser();
-		dateField.setBounds(519, 78, 109, 19);
+		dateField.setBounds(625, 96, 150, 36);
 		frame.getContentPane().add(dateField);
 		
 		JButton btnNewButton = new JButton("Tìm vé");
+		btnNewButton.setBackground(Color.LIGHT_GRAY);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox1.getSelectedIndex() == -1 || comboBox2.getSelectedIndex() == -1 || dateField.getDate() == null) {
@@ -189,10 +207,12 @@ public class Booking {
 				}
 			}
 		});
-		btnNewButton.setBounds(678, 76, 85, 21);
+		btnNewButton.setBounds(795, 95, 96, 36);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Lịch trình");
+		btnNewButton_1.setBackground(Color.LIGHT_GRAY);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				k = true;
@@ -266,17 +286,19 @@ public class Booking {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(805, 76, 97, 21);
+		btnNewButton_1.setBounds(901, 94, 121, 36);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 104, 1012, 420);
+		scrollPane.setBounds(10, 157, 1012, 415);
 		frame.getContentPane().add(scrollPane);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
 		JButton btnNewButton_2 = new JButton("Đặt vé");
+		btnNewButton_2.setBackground(new Color(255, 182, 193));
+		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(seatField.getText().equals("")) {
@@ -322,36 +344,51 @@ public class Booking {
 				
 			}
 		});
-		btnNewButton_2.setBounds(732, 544, 85, 21);
+		btnNewButton_2.setBounds(453, 593, 139, 41);
 		frame.getContentPane().add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("Thông tin cá nhân");
+		ImageIcon user = new ImageIcon("Images/user.png");
+		user.setImage(user.getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+		JButton btnNewButton_3 = new JButton(/*"Thông tin cá nhân"*/);
+		btnNewButton_3.setBackground(new Color(255, 239, 213));
+		//btnNewButton_3.setBackground(new Color(255, 235, 205));
+		//btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_3.setIcon(user);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CustomerInfo.main(null);
 			}
 		});
-		btnNewButton_3.setBounds(763, 25, 139, 21);
+		btnNewButton_3.setBounds(925, 21, 57, 57);
 		frame.getContentPane().add(btnNewButton_3);
 		
 		JLabel lblNewLabel_6 = new JLabel("Nhập số chỗ ngồi cần đặt");
-		lblNewLabel_6.setBounds(10, 548, 162, 13);
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_6.setBounds(10, 606, 215, 24);
 		frame.getContentPane().add(lblNewLabel_6);
 		
 		seatField = new JTextField();
-		seatField.setBounds(172, 545, 96, 19);
+		seatField.setBounds(211, 603, 96, 28);
 		frame.getContentPane().add(seatField);
 		seatField.setColumns(10);
 		
 		String[] items = {"Cần Thơ","Hà Nội","Quảng Bình","Ninh Bình","Đà Nẵng","Sài Gòn"};
 		comboBox1 = new JComboBox(items);
 		comboBox1.setSelectedIndex(-1);
-		comboBox1.setBounds(111, 76, 116, 21);
+		comboBox1.setBounds(149, 96, 116, 36);
 		frame.getContentPane().add(comboBox1);
 		
 		comboBox2 = new JComboBox(items);
 		comboBox2.setSelectedIndex(-1);
-		comboBox2.setBounds(345, 76, 116, 21);
+		comboBox2.setBounds(427, 95, 116, 36);
 		frame.getContentPane().add(comboBox2);
+		
+		ImageIcon booking = new ImageIcon("Images/booking.png");
+		booking.setImage(booking.getImage().getScaledInstance(1100, 700, Image.SCALE_DEFAULT));
+		JLabel background = new JLabel();
+		background.setIcon(booking);
+		background.setBounds(0, 0, 1032, 652);
+		frame.getContentPane().add(background);
+		
 	}
 }
