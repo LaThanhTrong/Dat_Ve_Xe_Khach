@@ -5,7 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import com.toedter.calendar.JDateChooser;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -523,18 +527,19 @@ public class ManagePage {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1257, 620);
+		frame.setBounds(120, 15, 1350, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Hệ thống quản lí");
-		lblNewLabel.setForeground(new Color(102, 153, 0));
+		JLabel lblNewLabel = new JLabel("Hệ Thống Quản Lí");
+		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setBackground(Color.WHITE);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 35));
+		lblNewLabel.setFont(new Font("Serif", Font.BOLD, 35));
 		lblNewLabel.setBounds(20, 10, 308, 44);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JButton btnCustomer = new JButton("Khách hàng");
+		btnCustomer.setBackground(Color.LIGHT_GRAY);
 		btnCustomer.setForeground(new Color(0, 0, 0));
 		btnCustomer.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnCustomer.addActionListener(new ActionListener() {
@@ -557,10 +562,11 @@ public class ManagePage {
 				}
 			}
 		});
-		btnCustomer.setBounds(10, 61, 114, 21);
+		btnCustomer.setBounds(65, 64, 114, 35);
 		frame.getContentPane().add(btnCustomer);
 		
 		JButton btnBus = new JButton("Xe khách");
+		btnBus.setBackground(Color.LIGHT_GRAY);
 		btnBus.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnBus.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -582,10 +588,11 @@ public class ManagePage {
 				}
 			}
 		});
-		btnBus.setBounds(10, 221, 114, 21);
+		btnBus.setBounds(65, 318, 114, 35);
 		frame.getContentPane().add(btnBus);
 		
 		JButton btnSchedule = new JButton("Lịch trình");
+		btnSchedule.setBackground(Color.LIGHT_GRAY);
 		btnSchedule.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnSchedule.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -624,10 +631,11 @@ public class ManagePage {
 				}
 			}
 		});
-		btnSchedule.setBounds(10, 302, 114, 21);
+		btnSchedule.setBounds(65, 446, 114, 35);
 		frame.getContentPane().add(btnSchedule);
 		
 		JButton btnBooking = new JButton("Đặt vé");
+		btnBooking.setBackground(Color.LIGHT_GRAY);
 		btnBooking.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnBooking.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -665,10 +673,11 @@ public class ManagePage {
 				}
 			}
 		});
-		btnBooking.setBounds(10, 402, 114, 21);
+		btnBooking.setBounds(65, 626, 114, 36);
 		frame.getContentPane().add(btnBooking);
 		
 		JButton btnDriver = new JButton("Tài xế");
+		btnDriver.setBackground(Color.LIGHT_GRAY);
 		btnDriver.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnDriver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -690,10 +699,11 @@ public class ManagePage {
 				}
 			}
 		});
-		btnDriver.setBounds(10, 144, 114, 21);
+		btnDriver.setBounds(65, 189, 114, 35);
 		frame.getContentPane().add(btnDriver);
 		
 		JButton btnPayment = new JButton("Thanh toán");
+		btnPayment.setBackground(Color.LIGHT_GRAY);
 		btnPayment.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnPayment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -717,83 +727,84 @@ public class ManagePage {
 				}
 			}
 		});
-		btnPayment.setBounds(10, 479, 114, 21);
+		btnPayment.setBounds(394, 626, 114, 36);
 		frame.getContentPane().add(btnPayment);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tên khách hàng");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_1.setBounds(20, 92, 104, 16);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(20, 109, 135, 28);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Số điện thoại");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_2.setBounds(20, 121, 85, 13);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_2.setBounds(20, 150, 114, 27);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Tên tài xế");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_3.setBounds(20, 175, 57, 13);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_3.setBounds(20, 234, 114, 28);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Số điện thoại");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_4.setBounds(20, 198, 75, 13);
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_4.setBounds(20, 280, 114, 28);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Biển số");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_5.setBounds(20, 254, 45, 13);
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_5.setBounds(20, 363, 85, 28);
 		frame.getContentPane().add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Tên xe");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_6.setBounds(20, 279, 45, 13);
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_6.setBounds(20, 412, 85, 29);
 		frame.getContentPane().add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("Ngày khởi hành");
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_7.setBounds(20, 330, 104, 16);
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_7.setBounds(20, 491, 124, 28);
 		frame.getContentPane().add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_8 = new JLabel("Địa chỉ đầu");
-		lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_8.setBounds(20, 356, 67, 13);
+		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_8.setBounds(20, 538, 114, 26);
 		frame.getContentPane().add(lblNewLabel_8);
 		
 		JLabel lblNewLabel_9 = new JLabel("Địa chỉ đến");
-		lblNewLabel_9.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_9.setBounds(20, 379, 67, 13);
+		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_9.setBounds(20, 588, 114, 28);
 		frame.getContentPane().add(lblNewLabel_9);
 		
 		JLabel lblNewLabel_10 = new JLabel("Tên khách hàng");
-		lblNewLabel_10.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_10.setBounds(20, 430, 104, 16);
+		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_10.setBounds(20, 672, 124, 28);
 		frame.getContentPane().add(lblNewLabel_10);
 		
 		JLabel lblNewLabel_11 = new JLabel("Ngày đặt vé");
-		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_11.setBounds(20, 456, 85, 13);
+		lblNewLabel_11.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_11.setBounds(20, 722, 114, 28);
 		frame.getContentPane().add(lblNewLabel_11);
 		
 		JLabel lblNewLabel_12 = new JLabel("Tên khách hàng");
-		lblNewLabel_12.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_12.setBounds(20, 508, 114, 21);
+		lblNewLabel_12.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_12.setBounds(348, 672, 135, 28);
 		frame.getContentPane().add(lblNewLabel_12);
 		
 		JLabel lblNewLabel_13 = new JLabel("Giảm giá");
-		lblNewLabel_13.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNewLabel_13.setBounds(20, 534, 85, 18);
+		lblNewLabel_13.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_13.setBounds(348, 722, 85, 25);
 		frame.getContentPane().add(lblNewLabel_13);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(348, 10, 885, 490);
+		scrollPane.setBounds(348, 10, 978, 606);
 		frame.getContentPane().add(scrollPane);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
 		
 		JButton btnAdd = new JButton("Thêm");
-		btnAdd.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnAdd.setBackground(new Color(255, 99, 71));
+		btnAdd.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switch(key) {
@@ -815,13 +826,13 @@ public class ManagePage {
 				}
 			}
 		});
-		btnAdd.setBounds(623, 508, 85, 42);
+		btnAdd.setBounds(808, 626, 93, 47);
 		frame.getContentPane().add(btnAdd);
 		
 		JButton btnDelete = new JButton("Xóa");
 		btnDelete.setForeground(new Color(0, 0, 0));
-		btnDelete.setBackground(Color.WHITE);
-		btnDelete.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnDelete.setBackground(new Color(255, 99, 71));
+		btnDelete.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(key == 0) {
@@ -851,11 +862,12 @@ public class ManagePage {
 				}
 			}
 		});
-		btnDelete.setBounds(1148, 512, 85, 42);
+		btnDelete.setBounds(1208, 687, 85, 42);
 		frame.getContentPane().add(btnDelete);
 		
 		JButton btnEdit = new JButton("Sửa");
-		btnEdit.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnEdit.setBackground(new Color(255, 99, 71));
+		btnEdit.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(key == 0) {
@@ -1017,76 +1029,78 @@ public class ManagePage {
 				}
 			}
 		});
-		btnEdit.setBounds(1053, 512, 85, 42);
+		btnEdit.setBounds(1094, 687, 85, 42);
 		frame.getContentPane().add(btnEdit);
 		
 		nameCustomerField = new JTextField();
-		nameCustomerField.setBounds(119, 95, 219, 19);
+		nameCustomerField.setBounds(144, 109, 195, 28);
 		frame.getContentPane().add(nameCustomerField);
 		nameCustomerField.setColumns(10);
 		
 		phoneCustomerField = new JTextField();
-		phoneCustomerField.setBounds(119, 118, 219, 19);
+		phoneCustomerField.setBounds(144, 152, 194, 28);
 		frame.getContentPane().add(phoneCustomerField);
 		phoneCustomerField.setColumns(10);
 		
 		nameDriverField = new JTextField();
-		nameDriverField.setBounds(119, 172, 219, 19);
+		nameDriverField.setBounds(144, 234, 195, 28);
 		frame.getContentPane().add(nameDriverField);
 		nameDriverField.setColumns(10);
 		
 		phoneDriverField = new JTextField();
-		phoneDriverField.setBounds(119, 196, 219, 19);
+		phoneDriverField.setBounds(144, 280, 195, 28);
 		frame.getContentPane().add(phoneDriverField);
 		phoneDriverField.setColumns(10);
 		
 		plateBusField = new JTextField();
-		plateBusField.setBounds(119, 251, 219, 19);
+		plateBusField.setBounds(144, 363, 194, 28);
 		frame.getContentPane().add(plateBusField);
 		plateBusField.setColumns(10);
 		
 		nameBusField = new JTextField();
-		nameBusField.setBounds(119, 274, 219, 19);
+		nameBusField.setBounds(144, 412, 195, 28);
 		frame.getContentPane().add(nameBusField);
 		nameBusField.setColumns(10);
 		
 		dateScheduleField = new JDateChooser();
-		dateScheduleField.setBounds(119, 327, 219, 19);
+		dateScheduleField.setBounds(144, 491, 194, 28);
 		frame.getContentPane().add(dateScheduleField);
 		
 		namePaymentField = new JTextField();
-		namePaymentField.setBounds(119, 509, 219, 19);
+		namePaymentField.setBounds(482, 672, 195, 28);
 		frame.getContentPane().add(namePaymentField);
 		namePaymentField.setColumns(10);
 		
 		discountPaymentField = new JTextField();
-		discountPaymentField.setBounds(119, 534, 219, 19);
+		discountPaymentField.setBounds(482, 722, 195, 26);
 		frame.getContentPane().add(discountPaymentField);
 		discountPaymentField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Dọn bảng");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnNewButton.setBackground(new Color(220, 220, 220));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				table.setModel(new DefaultTableModel());
 				key = 0;
 			}
 		});
-		btnNewButton.setBounds(443, 508, 95, 42);
+		btnNewButton.setBounds(745, 686, 114, 45);
 		frame.getContentPane().add(btnNewButton);
 		
 		addressField = new JTextField();
-		addressField.setBounds(119, 353, 219, 19);
+		addressField.setBounds(144, 538, 195, 28);
 		frame.getContentPane().add(addressField);
 		addressField.setColumns(10);
 		
 		destinationField = new JTextField();
-		destinationField.setBounds(119, 376, 219, 19);
+		destinationField.setBounds(144, 587, 195, 28);
 		frame.getContentPane().add(destinationField);
 		destinationField.setColumns(10);
 		
 		JButton btnReset = new JButton("Đặt lại");
-		btnReset.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnReset.setBackground(new Color(220, 220, 220));
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				nameCustomerField.setText(null);
@@ -1104,32 +1118,84 @@ public class ManagePage {
 				dateScheduleField.setDate(null);
 			}
 		});
-		btnReset.setBounds(348, 508, 85, 42);
+		btnReset.setBounds(705, 626, 93, 51);
 		frame.getContentPane().add(btnReset);
 		
 		dateBookingField = new JDateChooser();
-		dateBookingField.setBounds(119, 456, 219, 19);
+		dateBookingField.setBounds(144, 722, 195, 28);
 		frame.getContentPane().add(dateBookingField);
 		
 		nameBookingField = new JTextField();
-		nameBookingField.setBounds(119, 430, 219, 19);
+		nameBookingField.setBounds(144, 671, 195, 28);
 		frame.getContentPane().add(nameBookingField);
 		nameBookingField.setColumns(10);
 		
 		String notice = "- Khách hàng\n- Tài xế\n- Xe khách\n- Lịch trình";
 		JTextArea textArea = new JTextArea();
+		textArea.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		textArea.append(notice);
-		textArea.setBounds(718, 508, 135, 65);
+		textArea.setBounds(911, 626, 135, 137);
 		frame.getContentPane().add(textArea);
 		
 		JButton btnNewButton_1 = new JButton("Tra cứu doanh thu");
+		btnNewButton_1.setBackground(Color.PINK);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ProfitDetails.main(null);
 			}
 		});
-		btnNewButton_1.setBounds(877, 520, 147, 28);
+		btnNewButton_1.setBounds(1094, 622, 199, 44);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		ImageIcon khachhang = new ImageIcon("Images/khachhang.png");
+		khachhang.setImage(khachhang.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+		JLabel customerIcon = new JLabel();
+		customerIcon.setIcon(khachhang);
+		customerIcon.setBounds(20, 64, 35, 35);
+		frame.getContentPane().add(customerIcon);
+		
+		ImageIcon driver = new ImageIcon("Images/driver.png");
+		driver.setImage(driver.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+		JLabel driverIcon = new JLabel();
+		driverIcon.setIcon(driver);
+		driverIcon.setBounds(20, 189, 35, 35);
+		frame.getContentPane().add(driverIcon);
+		
+		ImageIcon bus = new ImageIcon("Images/xekhach.png");
+		bus.setImage(bus.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+		JLabel busIcon = new JLabel();
+		busIcon.setIcon(bus);
+		busIcon.setBounds(20, 318, 35, 35);
+		frame.getContentPane().add(busIcon);
+		
+		ImageIcon schedule = new ImageIcon("Images/schedule.png");
+		schedule.setImage(schedule.getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT));
+		JLabel scheduleIcon = new JLabel();
+		scheduleIcon.setIcon(schedule);
+		scheduleIcon.setBounds(10, 446, 54, 35);
+		frame.getContentPane().add(scheduleIcon);
+		
+		ImageIcon ticket = new ImageIcon("Images/ticket.png");
+		ticket.setImage(ticket.getImage().getScaledInstance(35, 40, Image.SCALE_DEFAULT));
+		JLabel bookingIcon = new JLabel();
+		bookingIcon.setIcon(ticket);
+		bookingIcon.setBounds(20, 627, 35, 35);
+		frame.getContentPane().add(bookingIcon);
+		
+		ImageIcon payment = new ImageIcon("Images/payment.png");
+		payment.setImage(payment.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+		JLabel paymentIcon = new JLabel();
+		paymentIcon.setIcon(payment);
+		paymentIcon.setBounds(349, 626, 35, 35);
+		frame.getContentPane().add(paymentIcon);
+		
+		ImageIcon backgroundIcon = new ImageIcon("Images/login.jpg");
+		backgroundIcon.setImage(backgroundIcon.getImage().getScaledInstance(1500, 800, Image.SCALE_SMOOTH));
+		JLabel background = new JLabel();
+		background.setIcon(backgroundIcon);
+		background.setBounds(0, 0, 1336, 763);
+		frame.getContentPane().add(background);
 		
 	}
 }

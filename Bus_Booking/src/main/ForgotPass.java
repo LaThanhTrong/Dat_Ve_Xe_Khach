@@ -53,37 +53,38 @@ public class ForgotPass {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 446, 223);
+		frame.setBounds(100, 100, 446, 237);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Tên tài khoản");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(10, 53, 131, 22);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel.setBounds(10, 58, 131, 31);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Quên mật khẩu");
 		lblNewLabel_1.setForeground(Color.RED);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel_1.setBounds(121, 10, 173, 31);
+		lblNewLabel_1.setFont(new Font("Serif", Font.BOLD, 25));
+		lblNewLabel_1.setBounds(121, 10, 182, 31);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNhpMOpt = new JLabel("Nhập mã OTP");
-		lblNhpMOpt.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNhpMOpt.setBounds(10, 102, 131, 22);
+		lblNhpMOpt.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNhpMOpt.setBounds(10, 107, 131, 28);
 		frame.getContentPane().add(lblNhpMOpt);
 		
 		userField = new JTextField();
-		userField.setBounds(151, 58, 244, 19);
+		userField.setBounds(151, 58, 244, 31);
 		frame.getContentPane().add(userField);
 		userField.setColumns(10);
 		
 		otpField = new JTextField();
-		otpField.setBounds(151, 107, 244, 19);
+		otpField.setBounds(151, 107, 244, 28);
 		frame.getContentPane().add(otpField);
 		otpField.setColumns(10);
 		
 		JButton btnConfirm = new JButton("Xác nhận");
+		btnConfirm.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(userField.getText().equals("") || otpField.getText().equals("")) {
@@ -100,20 +101,22 @@ public class ForgotPass {
 				}
 			}
 		});
-		btnConfirm.setBounds(297, 145, 98, 31);
+		btnConfirm.setBounds(264, 159, 131, 31);
 		frame.getContentPane().add(btnConfirm);
 		
 		JButton btnReset = new JButton("Đặt lại");
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				userField.setText(null);
 				otpField.setText(null);
 			}
 		});
-		btnReset.setBounds(169, 145, 85, 31);
+		btnReset.setBounds(137, 161, 103, 31);
 		frame.getContentPane().add(btnReset);
 		
 		JButton btnExit = new JButton("Gửi");
+		btnExit.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				username = userField.getText();
@@ -156,7 +159,7 @@ public class ForgotPass {
 				}
 			}
 		});
-		btnExit.setBounds(10, 145, 85, 31);
+		btnExit.setBounds(10, 161, 103, 31);
 		frame.getContentPane().add(btnExit);
 	}
 	public String getUsername() {

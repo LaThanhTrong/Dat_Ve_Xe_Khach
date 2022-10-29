@@ -16,6 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class OrderHistory {
 
@@ -56,8 +57,9 @@ public class OrderHistory {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Lịch sử thanh toán");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblNewLabel.setBounds(10, 21, 221, 25);
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Serif", Font.BOLD, 25));
+		lblNewLabel.setBounds(130, 10, 221, 36);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -71,12 +73,13 @@ public class OrderHistory {
 		table.setModel(new DefaultTableModel());
 		
 		btnNewButton = new JButton("Trở về");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 			}
 		});
-		btnNewButton.setBounds(293, 21, 85, 21);
+		btnNewButton.setBounds(10, 10, 94, 36);
 		frame.getContentPane().add(btnNewButton);
 		DefaultTableModel model = null;
 		ResultSetMetaData rsmd = null;

@@ -18,6 +18,8 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Color;
 
 public class AddBus {
 	private JFrame frame;
@@ -56,36 +58,44 @@ public class AddBus {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 356);
+		frame.setBounds(100, 100, 450, 384);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Xe khách");
-		lblNewLabel.setBounds(187, 10, 71, 13);
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Serif", Font.BOLD, 25));
+		lblNewLabel.setBounds(166, 10, 158, 27);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tên xe khách");
-		lblNewLabel_1.setBounds(10, 37, 77, 13);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(10, 56, 112, 24);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Biển số");
-		lblNewLabel_2.setBounds(10, 71, 45, 13);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_2.setBounds(10, 98, 103, 24);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Chỗ ngồi");
-		lblNewLabel_3.setBounds(10, 107, 45, 13);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_3.setBounds(10, 146, 103, 23);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Giường");
-		lblNewLabel_4.setBounds(10, 148, 45, 13);
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_4.setBounds(10, 193, 61, 27);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Tivi");
-		lblNewLabel_5.setBounds(10, 190, 45, 13);
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_5.setBounds(10, 230, 61, 21);
 		frame.getContentPane().add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Wifi");
-		lblNewLabel_6.setBounds(10, 229, 45, 13);
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_6.setBounds(10, 268, 61, 21);
 		frame.getContentPane().add(lblNewLabel_6);
 		
 		JRadioButton btnY1 = new JRadioButton("Có");
@@ -94,7 +104,7 @@ public class AddBus {
 				bed = 1;
 			}
 		});
-		btnY1.setBounds(61, 144, 61, 21);
+		btnY1.setBounds(81, 195, 61, 26);
 		frame.getContentPane().add(btnY1);
 		
 		JRadioButton btnN1 = new JRadioButton("Không");
@@ -103,7 +113,7 @@ public class AddBus {
 				bed = 0;
 			}
 		});
-		btnN1.setBounds(124, 144, 103, 21);
+		btnN1.setBounds(166, 195, 103, 26);
 		frame.getContentPane().add(btnN1);
 		
 		ButtonGroup g1 = new ButtonGroup();
@@ -117,7 +127,7 @@ public class AddBus {
 				tivi = 1;
 			}
 		});
-		btnY2.setBounds(61, 186, 61, 21);
+		btnY2.setBounds(81, 229, 61, 26);
 		frame.getContentPane().add(btnY2);
 		
 		JRadioButton btnN2 = new JRadioButton("Không");
@@ -126,7 +136,7 @@ public class AddBus {
 				tivi = 0;
 			}
 		});
-		btnN2.setBounds(124, 186, 103, 21);
+		btnN2.setBounds(166, 229, 103, 26);
 		frame.getContentPane().add(btnN2);
 		
 		ButtonGroup g2 = new ButtonGroup();
@@ -139,7 +149,7 @@ public class AddBus {
 				wifi = 1;
 			}
 		});
-		btnY3.setBounds(61, 225, 61, 21);
+		btnY3.setBounds(81, 267, 61, 27);
 		frame.getContentPane().add(btnY3);
 		
 		JRadioButton btnN3 = new JRadioButton("Không");
@@ -148,7 +158,7 @@ public class AddBus {
 				wifi = 0;
 			}
 		});
-		btnN3.setBounds(124, 225, 103, 21);
+		btnN3.setBounds(166, 267, 103, 27);
 		frame.getContentPane().add(btnN3);
 		
 		ButtonGroup g3 = new ButtonGroup();
@@ -156,16 +166,18 @@ public class AddBus {
 		g3.add(btnN3);
 		
 		nameField = new JTextField();
-		nameField.setBounds(107, 34, 264, 19);
+		nameField.setBounds(132, 57, 264, 27);
 		frame.getContentPane().add(nameField);
 		nameField.setColumns(10);
 		
 		plateField = new JTextField();
-		plateField.setBounds(107, 68, 264, 19);
+		plateField.setBounds(132, 99, 264, 27);
 		frame.getContentPane().add(plateField);
 		plateField.setColumns(10);
 		
 		JButton btnConfirm = new JButton("Xác nhận");
+		btnConfirm.setBackground(Color.LIGHT_GRAY);
+		btnConfirm.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(nameField.getText().equals("") || plateField.getText().equals("") || comboBox.getSelectedIndex() == -1 || g1.isSelected(null) || g2.isSelected(null) || g3.isSelected(null)){
@@ -195,13 +207,13 @@ public class AddBus {
 				}
 			}
 		});
-		btnConfirm.setBounds(315, 272, 85, 21);
+		btnConfirm.setBounds(177, 300, 103, 37);
 		frame.getContentPane().add(btnConfirm);
 		
 		String[] items = {"16","29","34"}; 
 		comboBox = new JComboBox(items);
 		comboBox.setSelectedIndex(-1);
-		comboBox.setBounds(107, 103, 264, 21);
+		comboBox.setBounds(132, 146, 61, 27);
 		frame.getContentPane().add(comboBox);
 	}
 }

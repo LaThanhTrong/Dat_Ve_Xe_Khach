@@ -12,12 +12,16 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
+import java.awt.Color;
 
 public class LoginAsManager {
 
@@ -57,17 +61,18 @@ public class LoginAsManager {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Quản lí đăng nhập");
-		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 25));
-		lblNewLabel.setBounds(107, 10, 274, 46);
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Serif", Font.BOLD, 25));
+		lblNewLabel.setBounds(155, 10, 220, 46);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Tài khoản:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1.setBounds(41, 83, 112, 32);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Mật khẩu:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_2.setBounds(41, 149, 112, 32);
 		frame.getContentPane().add(lblNewLabel_2);
 		
@@ -81,6 +86,8 @@ public class LoginAsManager {
 		frame.getContentPane().add(passwordField);
 		
 		JButton btnConfirm = new JButton("Xác nhận");
+		btnConfirm.setBackground(new Color(255, 99, 71));
+		btnConfirm.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String password = passwordField.getText();
@@ -127,10 +134,12 @@ public class LoginAsManager {
 			}
 		});
 		
-		btnConfirm.setBounds(333, 210, 94, 32);
+		btnConfirm.setBounds(333, 210, 116, 43);
 		frame.getContentPane().add(btnConfirm);
 		
 		JButton btnReset = new JButton("Đặt lại");
+		btnReset.setBackground(Color.LIGHT_GRAY);
+		btnReset.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				userField.setText(null);
@@ -141,6 +150,8 @@ public class LoginAsManager {
 		frame.getContentPane().add(btnReset);
 		
 		JButton btnExit = new JButton("Thoát");
+		btnExit.setBackground(Color.LIGHT_GRAY);
+		btnExit.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame = new JFrame("Thoát");
@@ -159,5 +170,19 @@ public class LoginAsManager {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(31, 66, 418, 2);
 		frame.getContentPane().add(separator_1);
+		
+		ImageIcon admin = new ImageIcon("Images/admin.png");
+		admin.setImage(admin.getImage().getScaledInstance(40,40, Image.SCALE_DEFAULT));
+		JLabel icon = new JLabel();
+		icon.setIcon(admin);
+		icon.setBounds(100, 10, 45, 42);
+		frame.getContentPane().add(icon);
+		
+		ImageIcon login = new ImageIcon("Images/login.jpg");
+		login.setImage(login.getImage().getScaledInstance(500, 280, Image.SCALE_DEFAULT));
+		JLabel background = new JLabel();
+		background.setIcon(login);
+		background.setBounds(0, 0, 486, 263);
+		frame.getContentPane().add(background);
 	}
 }

@@ -20,6 +20,8 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
 
 
 public class AddSchedule {
@@ -63,76 +65,87 @@ public class AddSchedule {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 646, 530);
+		frame.setBounds(100, 100, 437, 530);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Lịch trình");
-		lblNewLabel.setBounds(262, 10, 81, 20);
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Serif", Font.BOLD, 25));
+		lblNewLabel.setBounds(137, 0, 138, 33);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("ID Xe khách");
-		lblNewLabel_1.setBounds(10, 48, 81, 13);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(10, 45, 117, 31);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("ID Tài xế");
-		lblNewLabel_2.setBounds(10, 86, 63, 13);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_2.setBounds(10, 86, 92, 25);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Điểm đầu");
-		lblNewLabel_3.setBounds(10, 133, 92, 13);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_3.setBounds(10, 130, 92, 25);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Điểm đến");
-		lblNewLabel_4.setBounds(10, 178, 92, 13);
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_4.setBounds(10, 175, 92, 25);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Ngày khởi hành");
-		lblNewLabel_5.setBounds(10, 226, 117, 13);
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_5.setBounds(10, 226, 138, 25);
 		frame.getContentPane().add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Ngày đến");
-		lblNewLabel_6.setBounds(10, 271, 81, 13);
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_6.setBounds(10, 271, 81, 25);
 		frame.getContentPane().add(lblNewLabel_6);
 		
 		JLabel lblNewLabel_7 = new JLabel("Thời gian khởi hành");
-		lblNewLabel_7.setBounds(10, 317, 117, 13);
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_7.setBounds(10, 317, 170, 25);
 		frame.getContentPane().add(lblNewLabel_7);
 		
 		JLabel lblNewLabel_8 = new JLabel("Thời gian đến");
-		lblNewLabel_8.setBounds(10, 360, 104, 13);
+		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_8.setBounds(10, 366, 117, 25);
 		frame.getContentPane().add(lblNewLabel_8);
 		
 		JLabel lblNewLabel_9 = new JLabel("Giá");
-		lblNewLabel_9.setBounds(10, 407, 45, 13);
+		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_9.setBounds(10, 414, 64, 25);
 		frame.getContentPane().add(lblNewLabel_9);
 		
 		idBusField = new JTextField();
-		idBusField.setBounds(137, 45, 275, 19);
+		idBusField.setBounds(171, 45, 241, 28);
 		frame.getContentPane().add(idBusField);
 		idBusField.setColumns(10);
 		
 		idDriverField = new JTextField();
-		idDriverField.setBounds(137, 83, 275, 19);
+		idDriverField.setBounds(171, 83, 241, 28);
 		frame.getContentPane().add(idDriverField);
 		idDriverField.setColumns(10);
 		
 		startField = new JTextField();
-		startField.setBounds(137, 130, 275, 19);
+		startField.setBounds(171, 130, 241, 25);
 		frame.getContentPane().add(startField);
 		startField.setColumns(10);
 		
 		endField = new JTextField();
-		endField.setBounds(137, 175, 275, 19);
+		endField.setBounds(171, 175, 241, 25);
 		frame.getContentPane().add(endField);
 		endField.setColumns(10);
 		
 		dateField = new JDateChooser();
-		dateField.setBounds(137, 226, 138, 19);
+		dateField.setBounds(171, 226, 138, 25);
 		frame.getContentPane().add(dateField);
 		
 		dateArriveField = new JDateChooser();
-		dateArriveField.setBounds(137, 265, 138, 19);
+		dateArriveField.setBounds(171, 271, 138, 25);
 		frame.getContentPane().add(dateArriveField);
 		
 		JSpinner spinner = new JSpinner();
@@ -141,7 +154,7 @@ public class AddSchedule {
 		timeField = new javax.swing.JSpinner(sm);
 		JSpinner.DateEditor de_timeField = new JSpinner.DateEditor(timeField, "HH:mm:ss");
 		timeField.setEditor(de_timeField);
-		timeField.setBounds(137, 314, 138, 27);
+		timeField.setBounds(171, 319, 138, 25);
 		frame.getContentPane().add(timeField);
 		
 		JSpinner spinner_1 = new JSpinner();
@@ -150,15 +163,17 @@ public class AddSchedule {
 		timeArriveField = new javax.swing.JSpinner(sm1);
 		JSpinner.DateEditor de_timeArriveField = new JSpinner.DateEditor(timeArriveField, "HH:mm:ss");
 		timeArriveField.setEditor(de_timeArriveField);
-		timeArriveField.setBounds(137, 351, 138, 27);
+		timeArriveField.setBounds(171, 367, 138, 27);
 		frame.getContentPane().add(timeArriveField);
 		
 		priceField = new JTextField();
-		priceField.setBounds(137, 404, 275, 19);
+		priceField.setBounds(171, 414, 241, 25);
 		frame.getContentPane().add(priceField);
 		priceField.setColumns(10);
 		
 		JButton btnConfirm = new JButton("Xác nhận");
+		btnConfirm.setBackground(Color.LIGHT_GRAY);
+		btnConfirm.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(idBusField.getText().equals("") || idDriverField.getText().equals("") || startField.getText().equals("") || endField.getText().equals("") || dateField.getDate() == null || dateArriveField.getDate() == null || priceField.getText().equals("")){
@@ -195,7 +210,7 @@ public class AddSchedule {
 				}
 			}
 		});
-		btnConfirm.setBounds(467, 450, 117, 21);
+		btnConfirm.setBounds(137, 449, 128, 34);
 		frame.getContentPane().add(btnConfirm);
 	}
 }

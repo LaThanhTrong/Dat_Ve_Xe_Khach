@@ -68,70 +68,72 @@ public class CustomerReg {
 	private void initialize() {
 		LoginAsCustomer lc = new LoginAsCustomer();
 		frame = new JFrame();
-		frame.setBounds(100, 100, 638, 449);
+		frame.setBounds(100, 100, 638, 472);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Đăng ký tài khoản");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Serif", Font.BOLD, 25));
 		lblNewLabel.setBounds(197, 10, 255, 36);
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Họ và Tên Khách hàng:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_1.setBounds(10, 70, 191, 22);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setBounds(10, 70, 191, 35);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		nameField = new JTextField();
 		nameField.setDocument(new LengthRestrictedDocument(50));
-		nameField.setBounds(211, 70, 403, 24);
+		nameField.setBounds(211, 70, 403, 35);
 		frame.getContentPane().add(nameField);
 		nameField.setColumns(10);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Số điện thoại:");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_1_1.setBounds(10, 113, 191, 22);
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_1.setBounds(10, 115, 191, 35);
 		frame.getContentPane().add(lblNewLabel_1_1);
 		
 		phoneField = new JTextField();
 		phoneField.setDocument(new LengthRestrictedDocument(10));
-		phoneField.setBounds(211, 115, 403, 24);
+		phoneField.setBounds(211, 115, 403, 35);
 		frame.getContentPane().add(phoneField);
 		phoneField.setColumns(10);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Email:");
-		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_1_1_1.setBounds(10, 158, 56, 22);
+		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_1_1.setBounds(10, 158, 56, 35);
 		frame.getContentPane().add(lblNewLabel_1_1_1);
 		
 		emailField = new JTextField();
 		emailField.setDocument(new LengthRestrictedDocument(50));
 		emailField.setColumns(10);
-		emailField.setBounds(211, 158, 403, 22);
+		emailField.setBounds(211, 158, 403, 35);
 		frame.getContentPane().add(emailField);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Tên tài khoản:");
-		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_1_1_1_1.setBounds(10, 207, 117, 22);
+		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_1_1_1.setBounds(10, 207, 117, 33);
 		frame.getContentPane().add(lblNewLabel_1_1_1_1);
 		
 		userField = new JTextField();
 		userField.setDocument(new LengthRestrictedDocument(50));
 		userField.setColumns(10);
-		userField.setBounds(211, 207, 403, 22);
+		userField.setBounds(211, 207, 403, 33);
 		frame.getContentPane().add(userField);
 		
 		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Mật khẩu:");
-		lblNewLabel_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_1_1_1_1_1.setBounds(10, 256, 117, 22);
+		lblNewLabel_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_1_1_1_1.setBounds(10, 258, 117, 33);
 		frame.getContentPane().add(lblNewLabel_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("Nhập lại mật khẩu:");
-		lblNewLabel_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_1_1_1_1_1_1.setBounds(10, 310, 191, 22);
+		lblNewLabel_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1_1_1_1_1_1.setBounds(10, 310, 191, 33);
 		frame.getContentPane().add(lblNewLabel_1_1_1_1_1_1);
 		
 		JButton btnExit = new JButton("Thoát");
+		btnExit.setBackground(Color.LIGHT_GRAY);
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(JOptionPane.showConfirmDialog(frame, "Bạn có muốn thoát không?","Đăng nhập",JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
@@ -141,6 +143,7 @@ public class CustomerReg {
 		});
 		
 		JButton btnngK = new JButton("Đăng ký");
+		btnngK.setBackground(new Color(255, 99, 71));
 		btnngK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String name = nameField.getText();
@@ -187,22 +190,22 @@ public class CustomerReg {
 				}
 			}
 		});
-		btnExit.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnExit.setBounds(179, 360, 85, 42);
+		btnExit.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnExit.setBounds(168, 380, 104, 42);
 		frame.getContentPane().add(btnExit);
 		
-		btnngK.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnngK.setBounds(413, 360, 104, 42);
+		btnngK.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnngK.setBounds(348, 380, 104, 42);
 		frame.getContentPane().add(btnngK);
 		
 		passwordField = new JPasswordField();
 		passwordField.setDocument(new LengthRestrictedDocument(50));
-		passwordField.setBounds(211, 258, 403, 22);
+		passwordField.setBounds(211, 258, 403, 33);
 		frame.getContentPane().add(passwordField);
 		
 		rePassField = new JPasswordField();
 		rePassField.setDocument(new LengthRestrictedDocument(50));
-		rePassField.setBounds(211, 310, 403, 22);
+		rePassField.setBounds(211, 310, 403, 33);
 		frame.getContentPane().add(rePassField);
 	}
 }
