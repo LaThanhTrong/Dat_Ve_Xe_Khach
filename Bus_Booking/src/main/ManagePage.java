@@ -27,6 +27,8 @@ import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
+import java.awt.SystemColor;
+import javax.swing.UIManager;
 
 public class ManagePage {
 	private int key = 0;
@@ -531,7 +533,7 @@ public class ManagePage {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Hệ Thống Quản Lí");
+		JLabel lblNewLabel = new JLabel("Hệ Thống Quản Lý");
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setBackground(Color.WHITE);
 		lblNewLabel.setFont(new Font("Serif", Font.BOLD, 35));
@@ -562,7 +564,7 @@ public class ManagePage {
 				}
 			}
 		});
-		btnCustomer.setBounds(65, 64, 114, 35);
+		btnCustomer.setBounds(144, 64, 114, 35);
 		frame.getContentPane().add(btnCustomer);
 		
 		JButton btnBus = new JButton("Xe khách");
@@ -588,7 +590,7 @@ public class ManagePage {
 				}
 			}
 		});
-		btnBus.setBounds(65, 318, 114, 35);
+		btnBus.setBounds(144, 318, 114, 35);
 		frame.getContentPane().add(btnBus);
 		
 		JButton btnSchedule = new JButton("Lịch trình");
@@ -631,7 +633,7 @@ public class ManagePage {
 				}
 			}
 		});
-		btnSchedule.setBounds(65, 446, 114, 35);
+		btnSchedule.setBounds(144, 446, 114, 35);
 		frame.getContentPane().add(btnSchedule);
 		
 		JButton btnBooking = new JButton("Đặt vé");
@@ -673,7 +675,7 @@ public class ManagePage {
 				}
 			}
 		});
-		btnBooking.setBounds(65, 626, 114, 36);
+		btnBooking.setBounds(144, 626, 114, 36);
 		frame.getContentPane().add(btnBooking);
 		
 		JButton btnDriver = new JButton("Tài xế");
@@ -699,7 +701,7 @@ public class ManagePage {
 				}
 			}
 		});
-		btnDriver.setBounds(65, 189, 114, 35);
+		btnDriver.setBounds(144, 190, 114, 35);
 		frame.getContentPane().add(btnDriver);
 		
 		JButton btnPayment = new JButton("Thanh toán");
@@ -727,70 +729,70 @@ public class ManagePage {
 				}
 			}
 		});
-		btnPayment.setBounds(394, 626, 114, 36);
+		btnPayment.setBounds(482, 626, 114, 36);
 		frame.getContentPane().add(btnPayment);
 		
-		JLabel lblNewLabel_1 = new JLabel("Tên khách hàng");
+		JLabel lblNewLabel_1 = new JLabel("Tên khách hàng:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_1.setBounds(20, 109, 135, 28);
+		lblNewLabel_1.setBounds(10, 109, 135, 28);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Số điện thoại");
+		JLabel lblNewLabel_2 = new JLabel("Số điện thoại:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_2.setBounds(20, 150, 114, 27);
+		lblNewLabel_2.setBounds(10, 151, 114, 28);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_3 = new JLabel("Tên tài xế");
+		JLabel lblNewLabel_3 = new JLabel("Tên tài xế:");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_3.setBounds(20, 234, 114, 28);
+		lblNewLabel_3.setBounds(10, 234, 114, 28);
 		frame.getContentPane().add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("Số điện thoại");
+		JLabel lblNewLabel_4 = new JLabel("Số điện thoại:");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_4.setBounds(20, 280, 114, 28);
+		lblNewLabel_4.setBounds(10, 280, 114, 28);
 		frame.getContentPane().add(lblNewLabel_4);
 		
-		JLabel lblNewLabel_5 = new JLabel("Biển số");
+		JLabel lblNewLabel_5 = new JLabel("Biển số:");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_5.setBounds(20, 363, 85, 28);
+		lblNewLabel_5.setBounds(10, 363, 85, 28);
 		frame.getContentPane().add(lblNewLabel_5);
 		
-		JLabel lblNewLabel_6 = new JLabel("Tên xe");
+		JLabel lblNewLabel_6 = new JLabel("Tên xe:");
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_6.setBounds(20, 412, 85, 29);
+		lblNewLabel_6.setBounds(10, 411, 85, 29);
 		frame.getContentPane().add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_7 = new JLabel("Ngày khởi hành");
+		JLabel lblNewLabel_7 = new JLabel("Ngày khởi hành:");
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_7.setBounds(20, 491, 124, 28);
+		lblNewLabel_7.setBounds(10, 491, 135, 28);
 		frame.getContentPane().add(lblNewLabel_7);
 		
-		JLabel lblNewLabel_8 = new JLabel("Địa chỉ đầu");
+		JLabel lblNewLabel_8 = new JLabel("Địa chỉ đầu:");
 		lblNewLabel_8.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_8.setBounds(20, 538, 114, 26);
+		lblNewLabel_8.setBounds(10, 536, 114, 30);
 		frame.getContentPane().add(lblNewLabel_8);
 		
-		JLabel lblNewLabel_9 = new JLabel("Địa chỉ đến");
+		JLabel lblNewLabel_9 = new JLabel("Địa chỉ đến:");
 		lblNewLabel_9.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_9.setBounds(20, 588, 114, 28);
+		lblNewLabel_9.setBounds(10, 588, 114, 28);
 		frame.getContentPane().add(lblNewLabel_9);
 		
-		JLabel lblNewLabel_10 = new JLabel("Tên khách hàng");
+		JLabel lblNewLabel_10 = new JLabel("Tên khách hàng:");
 		lblNewLabel_10.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_10.setBounds(20, 672, 124, 28);
+		lblNewLabel_10.setBounds(10, 672, 135, 28);
 		frame.getContentPane().add(lblNewLabel_10);
 		
-		JLabel lblNewLabel_11 = new JLabel("Ngày đặt vé");
+		JLabel lblNewLabel_11 = new JLabel("Ngày đặt vé:");
 		lblNewLabel_11.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_11.setBounds(20, 722, 114, 28);
+		lblNewLabel_11.setBounds(10, 722, 114, 28);
 		frame.getContentPane().add(lblNewLabel_11);
 		
-		JLabel lblNewLabel_12 = new JLabel("Tên khách hàng");
+		JLabel lblNewLabel_12 = new JLabel("Tên khách hàng:");
 		lblNewLabel_12.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_12.setBounds(348, 672, 135, 28);
 		frame.getContentPane().add(lblNewLabel_12);
 		
-		JLabel lblNewLabel_13 = new JLabel("Giảm giá");
+		JLabel lblNewLabel_13 = new JLabel("Giảm giá:");
 		lblNewLabel_13.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_13.setBounds(348, 722, 85, 25);
 		frame.getContentPane().add(lblNewLabel_13);
@@ -1132,9 +1134,10 @@ public class ManagePage {
 		
 		String notice = "- Khách hàng\n- Tài xế\n- Xe khách\n- Lịch trình";
 		JTextArea textArea = new JTextArea();
-		textArea.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		textArea.setBackground(new Color(255, 228, 225));
+		textArea.setFont(new Font("Times New Roman", Font.BOLD, 18));
 		textArea.append(notice);
-		textArea.setBounds(911, 626, 135, 137);
+		textArea.setBounds(911, 626, 135, 121);
 		frame.getContentPane().add(textArea);
 		
 		JButton btnNewButton_1 = new JButton("Tra cứu doanh thu");
@@ -1149,45 +1152,45 @@ public class ManagePage {
 		frame.getContentPane().add(btnNewButton_1);
 		
 		ImageIcon khachhang = new ImageIcon("Images/khachhang.png");
-		khachhang.setImage(khachhang.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+		khachhang.setImage(khachhang.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
 		JLabel customerIcon = new JLabel();
 		customerIcon.setIcon(khachhang);
-		customerIcon.setBounds(20, 64, 35, 35);
+		customerIcon.setBounds(41, 64, 54, 44);
 		frame.getContentPane().add(customerIcon);
 		
 		ImageIcon driver = new ImageIcon("Images/driver.png");
-		driver.setImage(driver.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+		driver.setImage(driver.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
 		JLabel driverIcon = new JLabel();
 		driverIcon.setIcon(driver);
-		driverIcon.setBounds(20, 189, 35, 35);
+		driverIcon.setBounds(41, 190, 54, 44);
 		frame.getContentPane().add(driverIcon);
 		
 		ImageIcon bus = new ImageIcon("Images/xekhach.png");
-		bus.setImage(bus.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+		bus.setImage(bus.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
 		JLabel busIcon = new JLabel();
 		busIcon.setIcon(bus);
-		busIcon.setBounds(20, 318, 35, 35);
+		busIcon.setBounds(41, 318, 45, 44);
 		frame.getContentPane().add(busIcon);
 		
 		ImageIcon schedule = new ImageIcon("Images/schedule.png");
-		schedule.setImage(schedule.getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT));
+		schedule.setImage(schedule.getImage().getScaledInstance(80, 80, Image.SCALE_DEFAULT));
 		JLabel scheduleIcon = new JLabel();
 		scheduleIcon.setIcon(schedule);
-		scheduleIcon.setBounds(10, 446, 54, 35);
+		scheduleIcon.setBounds(20, 446, 66, 47);
 		frame.getContentPane().add(scheduleIcon);
 		
 		ImageIcon ticket = new ImageIcon("Images/ticket.png");
-		ticket.setImage(ticket.getImage().getScaledInstance(35, 40, Image.SCALE_DEFAULT));
+		ticket.setImage(ticket.getImage().getScaledInstance(55, 55, Image.SCALE_DEFAULT));
 		JLabel bookingIcon = new JLabel();
 		bookingIcon.setIcon(ticket);
-		bookingIcon.setBounds(20, 627, 35, 35);
+		bookingIcon.setBounds(41, 627, 66, 46);
 		frame.getContentPane().add(bookingIcon);
 		
 		ImageIcon payment = new ImageIcon("Images/payment.png");
-		payment.setImage(payment.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+		payment.setImage(payment.getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
 		JLabel paymentIcon = new JLabel();
 		paymentIcon.setIcon(payment);
-		paymentIcon.setBounds(349, 626, 35, 35);
+		paymentIcon.setBounds(388, 627, 45, 44);
 		frame.getContentPane().add(paymentIcon);
 		
 		ImageIcon backgroundIcon = new ImageIcon("Images/login.jpg");

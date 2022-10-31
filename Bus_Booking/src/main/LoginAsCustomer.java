@@ -236,7 +236,7 @@ public class LoginAsCustomer {
 			}
 		});
 		
-		btnConfirm.setBounds(189, 191, 118, 39);
+		btnConfirm.setBounds(136, 191, 118, 39);
 		frame.getContentPane().add(btnConfirm);
 		
 		JButton btnReset = new JButton("Đặt lại");
@@ -281,13 +281,13 @@ public class LoginAsCustomer {
 				CustomerReg.main(null);
 			}
 		});
-		btnNewButton.setBounds(337, 240, 112, 33);
+		btnNewButton.setBounds(331, 191, 118, 39);
 		frame.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel_3 = new JLabel("Không có tài khoản?");
 		lblNewLabel_3.setForeground(Color.RED);
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_3.setBounds(31, 244, 291, 29);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_3.setBounds(331, 240, 145, 29);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JButton btnNewButton_1 = new JButton("Quên mật khẩu?");
