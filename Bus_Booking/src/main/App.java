@@ -20,11 +20,5 @@ public class App {
 		else{
 			LoginAsCustomer.main(null);
 		}
-		//Hello World 
-		//La Thanh Trong
-		//Le Minh Man
-		//Vo Minh Tuyen
-		//Ho Minh Nhut
-		//Nguyen Duy Khang
 	}
 }
