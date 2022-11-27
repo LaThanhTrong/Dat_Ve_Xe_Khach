@@ -126,8 +126,7 @@ insert into lich_trinh values(1,1,1,'Cần Thơ','Sài Gòn',STR_TO_DATE('10-10-
 insert into lich_trinh values(2,2,2,'Cần Thơ','Hà Nội',STR_TO_DATE('11-10-2022','%d-%m-%Y'),STR_TO_DATE('16-10-2022','%d-%m-%Y'),'00:00:00','12:00:00',200000);
 insert into lich_trinh values(3,3,3,'Sài Gòn','Hà Nội',STR_TO_DATE('12-10-2022','%d-%m-%Y'),STR_TO_DATE('15-10-2022','%d-%m-%Y'),'08:00:00','15:00:00',25000);
 insert into lich_trinh values(4,4,1,'Hà Nội','Sài Gòn',STR_TO_DATE('13-10-2022','%d-%m-%Y'),STR_TO_DATE('16-10-2022','%d-%m-%Y'),'10:30:00','11:00:00',340000);
-insert into lich_trinh values(6,5,4,'Cần Thơ','Đà Lạt',STR_TO_DATE('28-11-2022','%d-%m-%Y'),STR_TO_DATE('28-11-2022','%d-%m-%Y'),'07:00:00','18:00:00',430000);
- select *from lich_trinh;
+insert into lich_trinh values(5,5,4,'Cần Thơ','Đà Lạt',STR_TO_DATE('28-11-2022','%d-%m-%Y'),STR_TO_DATE('28-11-2022','%d-%m-%Y'),'07:00:00','18:00:00',430000);
 
 insert into dat_ve values(1,1,1,3,STR_TO_DATE('09-10-2022','%d-%m-%Y'));
 insert into dat_ve values(2,2,2,5,STR_TO_DATE('09-04-2022','%d-%m-%Y'));
