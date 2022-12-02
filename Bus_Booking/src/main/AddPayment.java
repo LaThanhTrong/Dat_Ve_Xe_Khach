@@ -96,7 +96,7 @@ public class AddPayment {
 		btnConfirm.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(JOptionPane.showInternalConfirmDialog(null, "Bạn có đồng ý thanh toán cho hóa đơn này hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0){
+				if(JOptionPane.showConfirmDialog(null, "Bạn có đồng ý thanh toán cho hóa đơn này hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0){
 					String id_lt = b.getID_Schedule();
 					int id_dv = 0;
 					int id_kh = lc.getID();

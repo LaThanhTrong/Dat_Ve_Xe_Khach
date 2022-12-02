@@ -183,7 +183,7 @@ public class AddBus {
 				if(nameField.getText().equals("") || plateField.getText().equals("") || comboBox.getSelectedIndex() == -1 || g1.isSelected(null) || g2.isSelected(null) || g3.isSelected(null)){
 					JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin!","Lỗi",JOptionPane.ERROR_MESSAGE);
 				}
-				else if(JOptionPane.showInternalConfirmDialog(null, "Bạn có đồng ý thêm xe khách hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
+				else if(JOptionPane.showConfirmDialog(null, "Bạn có đồng ý thêm xe khách hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
 					Connection conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 					String sql = "INSERT INTO xe_khach(ten_xk,bs_xk,cn_xk,giuong_xk,tivi_xk,wifi_xk) values ('"+nameField.getText()+"','"+plateField.getText()+"','"+comboBox.getSelectedItem()+"','"+bed+"','"+tivi+"','"+wifi+"')";
 					Statement stmt = null;

@@ -157,7 +157,7 @@ public class CustomerInfo {
 				if(nameField.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Tên khách hàng không được để trống!","Lỗi sửa",JOptionPane.ERROR_MESSAGE);
 				}
-				else if(JOptionPane.showInternalConfirmDialog(null, "Bạn có đồng ý sửa tên khách hàng hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
+				else if(JOptionPane.showConfirmDialog(null, "Bạn có đồng ý sửa tên khách hàng hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
 					Connection conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 					PreparedStatement pStmt = null;
 					try {
@@ -183,7 +183,7 @@ public class CustomerInfo {
 				if(phoneField.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Số điện thoại không được để trống!","Lỗi sửa",JOptionPane.ERROR_MESSAGE);
 				}
-				else if(JOptionPane.showInternalConfirmDialog(null, "Bạn có đồng ý sửa số điện thoại hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
+				else if(JOptionPane.showConfirmDialog(null, "Bạn có đồng ý sửa số điện thoại hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
 					Connection conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 					PreparedStatement pStmt = null;
 					try {
@@ -209,7 +209,7 @@ public class CustomerInfo {
 				if(emailField.getText().equals("")) {
 					JOptionPane.showMessageDialog(null, "Email không được để trống!","Lỗi sửa",JOptionPane.ERROR_MESSAGE);
 				}
-				else if(JOptionPane.showInternalConfirmDialog(null, "Bạn có đồng ý sửa email hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
+				else if(JOptionPane.showConfirmDialog(null, "Bạn có đồng ý sửa email hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
 					Connection conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 					PreparedStatement pStmt = null;
 					try {

@@ -10,7 +10,7 @@ public class MySQLConnect {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 			String url = "jdbc:mysql://localhost/"+x;
 			String user = "root";
-			String pass = "vominhtuyen";
+			String pass = "nhoem13579";
 		
 		conn = DriverManager.getConnection(url, user, pass);
 			System.out.println("Thành công");

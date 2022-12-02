@@ -179,7 +179,7 @@ public class AddSchedule {
 				if(idBusField.getText().equals("") || idDriverField.getText().equals("") || startField.getText().equals("") || endField.getText().equals("") || dateField.getDate() == null || dateArriveField.getDate() == null || priceField.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin!","Lỗi",JOptionPane.ERROR_MESSAGE);
 				}
-				else if(JOptionPane.showInternalConfirmDialog(null, "Bạn có đồng ý thêm lịch trình hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
+				else if(JOptionPane.showConfirmDialog(null, "Bạn có đồng ý thêm lịch trình hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
 					Connection conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 					String date = null;

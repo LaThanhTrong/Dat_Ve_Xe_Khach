@@ -840,7 +840,7 @@ public class ManagePage {
 				if(key == 0) {
 					JOptionPane.showMessageDialog(null, "Vui lòng chọn bảng!","Lỗi xóa",JOptionPane.ERROR_MESSAGE);
 				}
-				else if(JOptionPane.showInternalConfirmDialog(null, "Bạn có đồng ý xóa dữ liệu hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
+				else if(JOptionPane.showConfirmDialog(null, "Bạn có đồng ý xóa dữ liệu hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
 					switch(key) {
 						case 1:
 							Delete("xoa_kh");
@@ -875,7 +875,7 @@ public class ManagePage {
 				if(key == 0) {
 					JOptionPane.showMessageDialog(null, "Vui lòng chọn bảng!","Lỗi sửa",JOptionPane.ERROR_MESSAGE);
 				}
-				else if(JOptionPane.showInternalConfirmDialog(null, "Bạn có đồng ý thay đổi dữ liệu hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
+				else if(JOptionPane.showConfirmDialog(null, "Bạn có đồng ý thay đổi dữ liệu hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
 					if(key == 1) {
 						try {
 							DefaultTableModel model = (DefaultTableModel)table.getModel();

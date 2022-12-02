@@ -99,7 +99,7 @@ public class AddDriver {
 				if(nameField.getText().equals("") || phoneField.getText().equals("") || addressField.getText().equals("")){
 					JOptionPane.showMessageDialog(null, "Vui lòng nhập đầy đủ thông tin!","Lỗi",JOptionPane.ERROR_MESSAGE);
 				}
-				else if(JOptionPane.showInternalConfirmDialog(null, "Bạn có đồng ý thêm tài xế hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
+				else if(JOptionPane.showConfirmDialog(null, "Bạn có đồng ý thêm tài xế hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0) {
 					Connection conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 					String sql = "INSERT INTO tai_xe(ten_tx,sdt_tx,dchi_tx) values ('"+nameField.getText()+"','"+phoneField.getText()+"','"+addressField.getText()+"')";
 					Statement stmt = null;

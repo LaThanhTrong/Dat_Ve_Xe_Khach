@@ -158,7 +158,7 @@ public class CustomerReg {
 				else if(!password.equals(rePass)) {
 					JOptionPane.showMessageDialog(null, "Mật khẩu và nhập lại mật khẩu không khớp","Lỗi đăng ký",JOptionPane.ERROR_MESSAGE);
 				}
-				else if(JOptionPane.showInternalConfirmDialog(null, "Bạn có đồng ý đăng ký tài khoản hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0){
+				else if(JOptionPane.showConfirmDialog(null, "Bạn có đồng ý đăng ký tài khoản hay không?","Xác nhận",JOptionPane.YES_NO_OPTION,JOptionPane.INFORMATION_MESSAGE) == 0){
 					Connection conn = MySQLConnect.getConnect("dat_ve_xe_khach");
 					CallableStatement cStmt = null;
 					Statement stmt = null;
